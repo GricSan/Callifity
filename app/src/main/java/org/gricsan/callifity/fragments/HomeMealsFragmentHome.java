@@ -33,7 +33,7 @@ public class HomeMealsFragmentHome extends HomeBaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ArrayList<String> mData = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 6; i++) {
             mData.add("Item " + i);
         }
         mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(mData);
