@@ -8,7 +8,9 @@
         android:id="@+id/meals_fragment_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+
+        android:layout_weight="1"
+        android:overScrollMode="never" />
 
 
     <FrameLayout
@@ -19,8 +21,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:background="@color/app_background"
+            android:gravity="center"
+            android:minHeight="100dp"
             android:text="FRAME" />
 
     </FrameLayout>

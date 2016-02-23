@@ -2,11 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/vh_textview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/meal_adapter_viewholder_bg"
+        android:gravity="center"
+        android:minHeight="50dp" />
 
 </LinearLayout>
