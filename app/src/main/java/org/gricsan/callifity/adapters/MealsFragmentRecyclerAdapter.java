@@ -30,6 +30,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.mTextFiel.setText(mData.get(position));
     }
 
     @Override
@@ -45,6 +46,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         public ViewHolder(LinearLayout itemView) {
             super(itemView);
             mRootView = itemView;
+            mTextFiel = (TextView) mRootView.findViewById(R.id.vh_textview);
         }
     }
 

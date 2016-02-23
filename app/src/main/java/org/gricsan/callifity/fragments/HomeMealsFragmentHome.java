@@ -1,6 +1,7 @@
 package org.gricsan.callifity.fragments;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,8 @@ public class HomeMealsFragmentHome extends HomeBaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_meals, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.meals_fragment_recycler);
+        mRecyclerView.setAdapter(mMealsFragmentRecyclerAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBottomFrame = (FrameLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
         return view;
     }
