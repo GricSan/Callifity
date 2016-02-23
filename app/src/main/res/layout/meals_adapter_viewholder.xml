@@ -7,50 +7,40 @@
     android:orientation="horizontal">
 
     <FrameLayout
+        android:id="@+id/meal_card_image"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
         android:layout_margin="5dp"
+        android:background="@color/colorAccent"
         android:minHeight="70dp"
-        android:minWidth="70dp"/>
+        android:minWidth="70dp" />
 
     <LinearLayout
+        android:id="@+id/meal_card_nutritions_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/vh_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Callories: "
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:id="@+id/meal_card_nutrition_calories"
+            style="@style/meal_card_textstyle"
+            android:text="@string/meal_card_calories" />
 
         <TextView
-            android:id="@+id/vh_textview2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Proteins: "
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:id="@+id/meal_card_nutrition_protein"
+            style="@style/meal_card_textstyle"
+            android:text="@string/meal_card_proteins" />
 
         <TextView
-            android:id="@+id/vh_textview3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Carbs: "
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:id="@+id/meal_card_nutrition_carbs"
+            style="@style/meal_card_textstyle"
+            android:text="@string/meal_card_carbs" />
 
         <TextView
-            android:id="@+id/vh_textview4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fats: "
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:id="@+id/meal_card_nutrition_fats"
+            style="@style/meal_card_textstyle"
+            android:text="@string/meal_card_fats" />
 
     </LinearLayout>
 

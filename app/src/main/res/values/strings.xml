@@ -2,4 +2,9 @@
 
     <string name="app_name">Callifity</string>
 
+    <string name="meal_card_calories">Calories: </string>
+    <string name="meal_card_proteins">Proteins: </string>
+    <string name="meal_card_carbs">Carbs: </string>
+    <string name="meal_card_fats">Fats: </string>
+
 </resources>
