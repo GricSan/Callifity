@@ -4,5 +4,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="activity_home_tab_hightlight_height">3dp</dimen>
+
+    <!-- meal_card_values -->
     <dimen name="meal_card_text_size">14sp</dimen>
+    <dimen name="meal_card_image_size">70dp</dimen>
+
 </resources>
