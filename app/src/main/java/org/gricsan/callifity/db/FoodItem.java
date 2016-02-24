@@ -47,4 +47,27 @@ public class FoodItem extends Model {
     public String itemImageUrl;
 
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public double getItemCalories() {
+        return itemCalories;
+    }
+
+    public double getItemProtein() {
+        return itemProtein;
+    }
+
+    public double getItemHydroCarb() {
+        return itemHydroCarb;
+    }
+
+    public double getItemFat() {
+        return itemFat;
+    }
+
+    public String getItemImageUrl() {
+        return itemImageUrl;
+    }
 }
