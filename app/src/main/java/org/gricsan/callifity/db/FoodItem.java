@@ -12,13 +12,13 @@ public class FoodItem extends Model {
         super();
     }
 
-    public FoodItem(String itemName, int itemCalories) {
+    public FoodItem(String itemName, double itemCalories) {
         super();
         this.itemName = itemName;
         this.itemCalories = itemCalories;
     }
 
-    public FoodItem(String itemName, int itemCalories, int itemProtein, int itemHydroCarb, int itemFat, String itemImageUrl) {
+    public FoodItem(String itemName, double itemCalories, double itemProtein, double itemHydroCarb, double itemFat, String itemImageUrl) {
         super();
         this.itemName = itemName;
         this.itemCalories = itemCalories;

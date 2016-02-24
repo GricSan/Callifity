@@ -15,15 +15,6 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     private ArrayList<String> mData;
 
-    private final double PROTEIN_CALORIES = 4.5;
-    private final double CARB_CALORIES = 4.5;
-    private final double FAT_CALORIES = 9.0;
-
-    private double mTotalProtein = 0;
-    private double mTotalCarbs = 0;
-    private double mTotalFats = 0;
-    private double mTotalCalories = 0;
-
     public MealsFragmentRecyclerAdapter(ArrayList<String> mData) {
         this.mData = mData;
     }
@@ -36,20 +27,10 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mProteins.append(" 4.4");
-        viewHolder.mCarbs.append(" 16.3");
-        viewHolder.mFats.append(" 2.1");
-
-        double proteins = Double.parseDouble(viewHolder.mProteins.getText().toString().split(": ")[1]);
-        viewHolder.mProteins.append("g");
-        double carbs = Double.parseDouble(viewHolder.mCarbs.getText().toString().split(": ")[1]);
-        viewHolder.mCarbs.append("g");
-        double fats = Double.parseDouble(viewHolder.mFats.getText().toString().split(": ")[1]);
-        viewHolder.mFats.append("g");
-
-        double calories = proteins * PROTEIN_CALORIES + carbs * CARB_CALORIES + fats * FAT_CALORIES;
-
-        viewHolder.mCalories.append(" " + String.valueOf(calories).substring(0, 6) + " kcal");
+        viewHolder.mProteins.append(" 4.4g");
+        viewHolder.mCarbs.append(" 16.3g");
+        viewHolder.mFats.append(" 2.1g");
+        viewHolder.mCalories.append(" 100 kcal");
     }
 
     @Override
