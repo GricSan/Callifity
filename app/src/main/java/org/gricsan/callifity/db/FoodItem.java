@@ -32,16 +32,16 @@ public class FoodItem extends Model {
     public String itemName;
 
     @Column(name = "Calories")
-    public int itemCalories;
+    public double itemCalories;
 
     @Column(name = "Protein")
-    public int itemProtein;
+    public double itemProtein;
 
     @Column(name = "HydroCarb")
-    public int itemHydroCarb;
+    public double itemHydroCarb;
 
     @Column(name = "Fat")
-    public int itemFat;
+    public double itemFat;
 
     @Column(name = "ImageUrl")
     public String itemImageUrl;
