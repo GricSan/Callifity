@@ -11,10 +11,10 @@ import com.activeandroid.ActiveAndroid;
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.HomePageViewPagerAdapter;
 import org.gricsan.callifity.fragments.HomeBaseFragment;
-import org.gricsan.callifity.fragments.HomeDataHomeBaseFragment;
-import org.gricsan.callifity.fragments.HomeMealsFragmentHome;
-import org.gricsan.callifity.fragments.HomeSportsFragmentHome;
-import org.gricsan.callifity.fragments.HomeStatisticsFragmentHome;
+import org.gricsan.callifity.fragments.HomeDataBaseFragment;
+import org.gricsan.callifity.fragments.HomeMealsFragment;
+import org.gricsan.callifity.fragments.HomeSportsFragment;
+import org.gricsan.callifity.fragments.HomeStatisticsFragment;
 
 
 public class MainActivity extends HomeBaseActivity {
@@ -36,10 +36,10 @@ public class MainActivity extends HomeBaseActivity {
         mResources = getResources();
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
-                HomeMealsFragmentHome.newInstance(),
-                HomeSportsFragmentHome.newInstance(),
-                HomeStatisticsFragmentHome.newInstance(),
-                HomeDataHomeBaseFragment.newInstance()
+                HomeMealsFragment.newInstance(),
+                HomeSportsFragment.newInstance(),
+                HomeStatisticsFragment.newInstance(),
+                HomeDataBaseFragment.newInstance()
         };
         HomePageViewPagerAdapter adapter = new HomePageViewPagerAdapter(getSupportFragmentManager(), mPages);
 

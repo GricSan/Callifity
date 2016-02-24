@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 
 import org.gricsan.callifity.R;
 
-public class HomeStatisticsFragmentHome extends HomeBaseFragment {
+public class HomeStatisticsFragment extends HomeBaseFragment {
 
     private static final String TAB_NAME = "STATS";
 
-    public static HomeStatisticsFragmentHome newInstance() {
-        HomeStatisticsFragmentHome homeStatisticsFragment = new HomeStatisticsFragmentHome();
+    public static HomeStatisticsFragment newInstance() {
+        HomeStatisticsFragment homeStatisticsFragment = new HomeStatisticsFragment();
 
         homeStatisticsFragment.mTabTitle = TAB_NAME;
 

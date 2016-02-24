@@ -13,7 +13,7 @@ import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
 
 import java.util.ArrayList;
 
-public class HomeMealsFragmentHome extends HomeBaseFragment {
+public class HomeMealsFragment extends HomeBaseFragment {
 
     private static final String TAB_NAME = "MEALS";
 
@@ -21,8 +21,8 @@ public class HomeMealsFragmentHome extends HomeBaseFragment {
     private FrameLayout mBottomFrame;
     private MealsFragmentRecyclerAdapter mMealsFragmentRecyclerAdapter;
 
-    public static HomeMealsFragmentHome newInstance() {
-        HomeMealsFragmentHome homeMealsFragment = new HomeMealsFragmentHome();
+    public static HomeMealsFragment newInstance() {
+        HomeMealsFragment homeMealsFragment = new HomeMealsFragment();
 
         homeMealsFragment.mTabTitle = TAB_NAME;
 
