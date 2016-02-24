@@ -18,7 +18,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
     private static final String TAB_NAME = "MEALS";
 
     private RecyclerView mRecyclerView;
+
     private FrameLayout mBottomFrame;
+
     private MealsFragmentRecyclerAdapter mMealsFragmentRecyclerAdapter;
 
     public static HomeMealsFragment newInstance() {

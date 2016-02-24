@@ -14,9 +14,15 @@ import java.util.ArrayList;
 public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFragmentRecyclerAdapter.ViewHolder> {
 
     private ArrayList<String> mData;
+
     private final double PROTEIN_CALORIES = 4.5;
     private final double CARB_CALORIES = 4.5;
     private final double FAT_CALORIES = 9.0;
+
+    private double mTotalProtein = 0;
+    private double mTotalCarbs = 0;
+    private double mTotalFats = 0;
+    private double mTotalCalories = 0;
 
     public MealsFragmentRecyclerAdapter(ArrayList<String> mData) {
         this.mData = mData;
