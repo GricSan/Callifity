@@ -23,8 +23,25 @@
             android:background="@color/app_background"
             android:gravity="center"
             android:minHeight="100dp"
+            android:backgroundTint="@color/colorPrimary"
             android:text="FRAME" />
 
     </FrameLayout>
+
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/meals_fragment_recycler"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/meals_fragment_fab_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="+"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

@@ -26,6 +26,8 @@
         android:layout_height="match_parent"
         android:background="@color/home_viewpager_bg"
         android:overScrollMode="never"
-        android:padding="5dp"/>
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"/>
 
 </LinearLayout>

@@ -2,10 +2,10 @@
 <resources>
     <color name="colorPrimary">#269301</color>
     <color name="colorPrimaryDark">#1f7901</color>
-    <color name="colorAccent">#eed522</color>
+    <color name="colorAccent">#f3d918</color>
     <color name="app_background">#ffffff</color>
 
-    <color name="home_selected_tab_text_color">#eed522</color>
+    <color name="home_selected_tab_text_color">#f3d918</color>
 
     <color name="home_viewpager_bg">#bababa</color>
 

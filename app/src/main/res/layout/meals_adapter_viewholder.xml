@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
     android:background="@drawable/meal_adapter_viewholder_bg"
     android:orientation="horizontal">
 
@@ -11,7 +11,7 @@
         android:layout_width="@dimen/meal_card_image_size"
         android:layout_height="@dimen/meal_card_image_size"
         android:layout_margin="5dp"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent" />
 
     <LinearLayout
         android:id="@+id/meal_card_nutritions_container"
