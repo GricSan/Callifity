@@ -45,7 +45,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ArrayList<FoodItem> data = new ArrayList<>();
-        data.add(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://www.apata.co.nz/images/style/header_avocado.png"));
+        data.add(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"));
+        data.add(new FoodItem("Greek", 2.0, 8.5, 14.7, 160.0, "http://img1.liveinternet.ru/images/attach/c/10/111/496/111496029_5177462_publication_128219_img228fe3a5356c33457df403041903ee98.png"));
+        data.add(new FoodItem("Klubnika", 2.0, 8.5, 14.7, 160.0, "http://img0.liveinternet.ru/images/attach/c/5/86/227/86227496_faa27d0e7877.png"));
         mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(data, getContext());
     }
 
@@ -70,5 +72,8 @@ public class HomeMealsFragment extends HomeBaseFragment {
     public void onResume() {
         super.onResume();
         mTotalCalories.setText(MealUtils.getTotalCalories(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalProteins.setText(MealUtils.getTotalProteins(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalCarbs.setText(MealUtils.getTotalCarbs(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalFats.setText(MealUtils.getTotalFats(mMealsFragmentRecyclerAdapter.getData()));
     }
 }

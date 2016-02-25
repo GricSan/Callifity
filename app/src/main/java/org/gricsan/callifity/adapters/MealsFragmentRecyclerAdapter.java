@@ -25,6 +25,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     private ArrayList<FoodItem> mData;
     private Context mContext;
+    private Target mPicassoTarget;
 
     public MealsFragmentRecyclerAdapter(ArrayList<FoodItem> data, Context context) {
         this.mData = data;
@@ -45,31 +46,29 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         viewHolder.mProteins.setText(MealUtils.convertToProteinsString(foodItem.getProteins()));
         viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(foodItem.getCarbs()));
         viewHolder.mFats.setText(MealUtils.convertToFatsString(foodItem.getFats()));
-        if (foodItem.getImageUrl().equals("")) {
-            viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
-        } else {
-            Picasso.with(mContext).load(foodItem.getImageUrl()).into(new Target() {
-                @Override
-                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                    viewHolder.mImage.setImageBitmap(bitmap);
-                    viewHolder.mImage.setVisibility(View.VISIBLE);
-                    viewHolder.mProgressBar.setVisibility(View.GONE);
-                }
+        mPicassoTarget = new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                viewHolder.mImage.setImageBitmap(bitmap);
+                viewHolder.mImage.setVisibility(View.VISIBLE);
+                viewHolder.mImageMask.setVisibility(View.VISIBLE);
+                viewHolder.mProgressBar.setVisibility(View.GONE);
+            }
 
-                @Override
-                public void onBitmapFailed(Drawable errorDrawable) {
-                    viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
-                    viewHolder.mImage.setVisibility(View.VISIBLE);
-                    viewHolder.mProgressBar.setVisibility(View.GONE);
-                }
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+                viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
+                viewHolder.mImage.setVisibility(View.VISIBLE);
+                viewHolder.mProgressBar.setVisibility(View.GONE);
+            }
 
-                @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {
-                    viewHolder.mImage.setVisibility(View.GONE);
-                    viewHolder.mProgressBar.setVisibility(View.VISIBLE);
-                }
-            });
-        }
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        };
+        viewHolder.mImage.setTag(mPicassoTarget);
+        Picasso.with(mContext).load(foodItem.getImageUrl()).into(mPicassoTarget);
     }
 
     @Override
@@ -86,6 +85,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         private TextView mCarbs;
         private TextView mFats;
         private ImageView mImage;
+        private ImageView mImageMask;
         private ProgressBar mProgressBar;
 
         public ViewHolder(LinearLayout itemView) {
@@ -97,6 +97,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
             mCarbs = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_carbs);
             mFats = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_fats);
             mImage = (ImageView) mRootView.findViewById(R.id.meal_card_image);
+            mImageMask = (ImageView) mRootView.findViewById(R.id.meal_card_image_mask);
             mProgressBar = (ProgressBar) mRootView.findViewById(R.id.image_progress_bar);
         }
     }

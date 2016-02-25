@@ -10,7 +10,8 @@
     <FrameLayout
         android:layout_width="@dimen/meal_card_image_size"
         android:layout_height="@dimen/meal_card_image_size"
-        android:layout_margin="5dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
 
         <ImageView
             android:id="@+id/meal_card_image"
@@ -18,6 +19,16 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:contentDescription="@string/food_item_image_description"
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/meal_card_image_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/food_item_image_description"
+            android:src="@drawable/meal_card_mask"
             android:visibility="gone"/>
 
         <ProgressBar

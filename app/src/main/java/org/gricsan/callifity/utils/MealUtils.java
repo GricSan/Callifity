@@ -11,34 +11,34 @@ public class MealUtils {
     private final static double CARB_CALORIES = 4.5;
     private final static double FAT_CALORIES = 9.0;
 
-    public static double countTotalProtein(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalProteins(ArrayList<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
             result += foodItem.getProteins();
         }
 
-        return result;
+        return "Total Proteins: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static double countTotalCarbs(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalCarbs(ArrayList<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
             result += foodItem.getCarbs();
         }
 
-        return result;
+        return "Total Carbs: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static double countTotalFats(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalFats(ArrayList<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
             result += foodItem.getFats();
         }
 
-        return result;
+        return "Total Fats: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
     public static String getTotalCalories(ArrayList<FoodItem> listOfMeals) {
