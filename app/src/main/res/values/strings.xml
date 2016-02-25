@@ -18,5 +18,6 @@
     <string name="daily_stats_calory_balance">Calory-balance:</string>
     <string name="food_item_image_description">Image of food item</string>
     <string name="meal_card_name">Product:</string>
+    <string name="meal_card_consumed">Consumed:</string>
 
 </resources>
