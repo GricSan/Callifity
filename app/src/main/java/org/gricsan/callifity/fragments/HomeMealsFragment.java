@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
 import org.gricsan.callifity.db.FoodItem;
+import org.gricsan.callifity.utils.MealUtils;
 
 import java.util.ArrayList;
 
@@ -43,9 +44,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<FoodItem> mData = new ArrayList<>();
-        mData.add(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://www.apata.co.nz/images/style/header_avocado.png"));
-        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(mData, getContext());
+        ArrayList<FoodItem> data = new ArrayList<>();
+        data.add(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://www.apata.co.nz/images/style/header_avocado.png"));
+        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(data, getContext());
     }
 
     @Override
@@ -65,4 +66,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mTotalCalories.append(MealUtils.getTotalCalories(mMealsFragmentRecyclerAdapter.getData()));
+    }
 }

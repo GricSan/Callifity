@@ -2,6 +2,7 @@ package org.gricsan.callifity.utils;
 
 import org.gricsan.callifity.db.FoodItem;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MealUtils {
@@ -40,10 +41,11 @@ public class MealUtils {
         return result;
     }
 
-    public static double getTotalCalories(ArrayList<FoodItem> listOfMeals) {
-        return countTotalProtein(listOfMeals) * PROTEIN_CALORIES
+    public static String getTotalCalories(ArrayList<FoodItem> listOfMeals) {
+        double result = countTotalProtein(listOfMeals) * PROTEIN_CALORIES
                 + countTotalCarbs(listOfMeals) * CARB_CALORIES
                 + countTotalFats(listOfMeals) * FAT_CALORIES;
+        return " " + new DecimalFormat("####.##").format(result) + " kcal";
     }
 
     public static String convertToGramms(double amount) {

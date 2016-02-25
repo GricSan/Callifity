@@ -1,14 +1,19 @@
 package org.gricsan.callifity.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.db.FoodItem;
@@ -33,7 +38,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
         FoodItem foodItem = mData.get(position);
         viewHolder.mName.append(" " + foodItem.getName());
         viewHolder.mCalories.append(MealUtils.convertToCalories(foodItem.getCalories()));
@@ -43,7 +48,27 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         if (foodItem.getImageUrl().equals("")) {
             viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
         } else {
-            Picasso.with(mContext).load(foodItem.getImageUrl()).fit().into(viewHolder.mImage);
+            Picasso.with(mContext).load(foodItem.getImageUrl()).into(new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    viewHolder.mImage.setImageBitmap(bitmap);
+                    viewHolder.mImage.setVisibility(View.VISIBLE);
+                    viewHolder.mProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onBitmapFailed(Drawable errorDrawable) {
+                    viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
+                    viewHolder.mImage.setVisibility(View.VISIBLE);
+                    viewHolder.mProgressBar.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+                    viewHolder.mImage.setVisibility(View.GONE);
+                    viewHolder.mProgressBar.setVisibility(View.VISIBLE);
+                }
+            });
         }
     }
 
@@ -61,6 +86,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         private TextView mCarbs;
         private TextView mFats;
         private ImageView mImage;
+        private ProgressBar mProgressBar;
 
         public ViewHolder(LinearLayout itemView) {
             super(itemView);
@@ -71,7 +97,12 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
             mCarbs = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_carbs);
             mFats = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_fats);
             mImage = (ImageView) mRootView.findViewById(R.id.meal_card_image);
+            mProgressBar = (ProgressBar) mRootView.findViewById(R.id.image_progress_bar);
         }
+    }
+
+    public ArrayList<FoodItem> getData() {
+        return mData;
     }
 
 }
