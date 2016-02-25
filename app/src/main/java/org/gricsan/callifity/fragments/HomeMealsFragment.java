@@ -69,6 +69,6 @@ public class HomeMealsFragment extends HomeBaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        mTotalCalories.append(MealUtils.getTotalCalories(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalCalories.setText(MealUtils.getTotalCalories(mMealsFragmentRecyclerAdapter.getData()));
     }
 }

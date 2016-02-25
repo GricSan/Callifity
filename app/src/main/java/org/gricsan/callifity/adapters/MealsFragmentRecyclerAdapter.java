@@ -40,11 +40,11 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
         FoodItem foodItem = mData.get(position);
-        viewHolder.mName.append(" " + foodItem.getName());
-        viewHolder.mCalories.append(MealUtils.convertToCalories(foodItem.getCalories()));
-        viewHolder.mProteins.append(MealUtils.convertToGramms(foodItem.getProteins()));
-        viewHolder.mCarbs.append(MealUtils.convertToGramms(foodItem.getCarbs()));
-        viewHolder.mFats.append(MealUtils.convertToGramms(foodItem.getFats()));
+        viewHolder.mName.setText(MealUtils.convertToProductNameString(foodItem.getName()));
+        viewHolder.mCalories.setText(MealUtils.convertToCaloriesString(foodItem.getCalories()));
+        viewHolder.mProteins.setText(MealUtils.convertToProteinsString(foodItem.getProteins()));
+        viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(foodItem.getCarbs()));
+        viewHolder.mFats.setText(MealUtils.convertToFatsString(foodItem.getFats()));
         if (foodItem.getImageUrl().equals("")) {
             viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
         } else {
