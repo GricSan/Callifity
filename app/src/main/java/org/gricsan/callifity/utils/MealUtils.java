@@ -14,7 +14,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getItemProtein();
+            result += foodItem.getProteins();
         }
 
         return result;
@@ -24,7 +24,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getItemHydroCarb();
+            result += foodItem.getCarbs();
         }
 
         return result;
@@ -34,7 +34,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getItemFat();
+            result += foodItem.getFats();
         }
 
         return result;
@@ -44,6 +44,14 @@ public class MealUtils {
         return countTotalProtein(listOfMeals) * PROTEIN_CALORIES
                 + countTotalCarbs(listOfMeals) * CARB_CALORIES
                 + countTotalFats(listOfMeals) * FAT_CALORIES;
+    }
+
+    public static String convertToGramms(double amount) {
+        return " " + amount + "g";
+    }
+
+    public static String convertToCalories(double amount) {
+        return " " + amount + " kcal";
     }
 
 }

@@ -4,21 +4,27 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:background="@drawable/meal_adapter_viewholder_bg"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <FrameLayout
+    <ImageView
         android:id="@+id/meal_card_image"
         android:layout_width="@dimen/meal_card_image_size"
         android:layout_height="@dimen/meal_card_image_size"
         android:layout_margin="5dp"
-        android:background="@color/home_selected_tab_text_color" />
+        android:contentDescription="@string/food_item_image_description" />
 
     <LinearLayout
+        android:layout_margin="5dp"
         android:id="@+id/meal_card_nutritions_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/meal_card_nutrition_name"
+            style="@style/meal_card_textstyle"
+            android:text="@string/meal_card_name" />
 
         <TextView
             android:id="@+id/meal_card_nutrition_calories"

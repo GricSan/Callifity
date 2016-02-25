@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
+import org.gricsan.callifity.db.FoodItem;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,13 @@ public class HomeMealsFragment extends HomeBaseFragment {
     private RecyclerView mRecyclerView;
 
     private LinearLayout mBottomFrame;
+
+    private TextView mTotalProteins;
+    private TextView mTotalCarbs;
+    private TextView mTotalFats;
+    private TextView mTotalCalories;
+    private TextView mColoryLimit;
+    private TextView mColoryBalance;
 
     private MealsFragmentRecyclerAdapter mMealsFragmentRecyclerAdapter;
 
@@ -34,11 +43,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ArrayList<String> mData = new ArrayList<>();
-        for (int i = 1; i <= 6; i++) {
-            mData.add("Item " + i);
-        }
-        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(mData);
+        ArrayList<FoodItem> mData = new ArrayList<>();
+        mData.add(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://www.apata.co.nz/images/style/header_avocado.png"));
+        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(mData, getContext());
     }
 
     @Override
@@ -48,6 +55,13 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView.setAdapter(mMealsFragmentRecyclerAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
+
+        mTotalProteins = (TextView) mBottomFrame.findViewById(R.id.daily_stats_proteins);
+        mTotalCarbs = (TextView) mBottomFrame.findViewById(R.id.daily_stats_carbs);
+        mTotalFats = (TextView) mBottomFrame.findViewById(R.id.daily_stats_fats);
+        mTotalCalories = (TextView) mBottomFrame.findViewById(R.id.daily_stats_total_cal);
+        mColoryLimit = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_limit);
+        mColoryBalance = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_balance);
         return view;
     }
 

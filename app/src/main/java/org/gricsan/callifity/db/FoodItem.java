@@ -18,13 +18,13 @@ public class FoodItem extends Model {
         this.itemCalories = itemCalories;
     }
 
-    public FoodItem(String itemName, double itemCalories, double itemProtein, double itemHydroCarb, double itemFat, String itemImageUrl) {
+    public FoodItem(String itemName, double itemProteins, double itemCarbs, double itemFats, double itemCalories, String itemImageUrl) {
         super();
         this.itemName = itemName;
         this.itemCalories = itemCalories;
-        this.itemProtein = itemProtein;
-        this.itemHydroCarb = itemHydroCarb;
-        this.itemFat = itemFat;
+        this.itemProteins = itemProteins;
+        this.itemHydroCarbs = itemCarbs;
+        this.itemFats = itemFats;
         this.itemImageUrl = itemImageUrl;
     }
 
@@ -35,39 +35,39 @@ public class FoodItem extends Model {
     public double itemCalories;
 
     @Column(name = "Protein")
-    public double itemProtein;
+    public double itemProteins;
 
     @Column(name = "HydroCarb")
-    public double itemHydroCarb;
+    public double itemHydroCarbs;
 
     @Column(name = "Fat")
-    public double itemFat;
+    public double itemFats;
 
     @Column(name = "ImageUrl")
     public String itemImageUrl;
 
 
-    public String getItemName() {
+    public String getName() {
         return itemName;
     }
 
-    public double getItemCalories() {
+    public double getCalories() {
         return itemCalories;
     }
 
-    public double getItemProtein() {
-        return itemProtein;
+    public double getProteins() {
+        return itemProteins;
     }
 
-    public double getItemHydroCarb() {
-        return itemHydroCarb;
+    public double getCarbs() {
+        return itemHydroCarbs;
     }
 
-    public double getItemFat() {
-        return itemFat;
+    public double getFats() {
+        return itemFats;
     }
 
-    public String getItemImageUrl() {
+    public String getImageUrl() {
         return itemImageUrl;
     }
 }

@@ -2,16 +2,21 @@
 
     <string name="app_name">Callifity</string>
 
+    <!-- Meal Cards -->
     <string name="meal_card_calories">Calories:</string>
     <string name="meal_card_proteins">Proteins:</string>
     <string name="meal_card_carbs">Carbs:</string>
     <string name="meal_card_fats">Fats:</string>
-    <string name="meals_bottom_frame_title">Daily Stats:</string>
+
+    <!-- Daily Stats-->
+    <string name="meals_bottom_frame_title">Daily Stats</string>
     <string name="daily_stats_proteins">Total proteins:</string>
     <string name="daily_stats_carbs">Total carbs:</string>
     <string name="daily_stats_fats">Total fats:</string>
     <string name="daily_stats_calories">Total Calories:</string>
     <string name="daily_stats_calory_limit">Calory-limit:</string>
     <string name="daily_stats_calory_balance">Calory-balance:</string>
+    <string name="food_item_image_description">Image of food item</string>
+    <string name="meal_card_name">Product:</string>
 
 </resources>

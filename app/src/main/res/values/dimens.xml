@@ -7,6 +7,6 @@
 
     <!-- meal_card_values -->
     <dimen name="meal_card_text_size">14sp</dimen>
-    <dimen name="meal_card_image_size">70dp</dimen>
+    <dimen name="meal_card_image_size">85dp</dimen>
 
 </resources>
