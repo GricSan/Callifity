@@ -14,24 +14,98 @@
         android:overScrollMode="never" />
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/meals_fragment_bottom_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/meals_frag_bottom_frame_bg"
-        android:minHeight="100dp">
+        android:background="@drawable/meals_fragment_bottom_frame_bg"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/meals_fragment_bottom_frame_bg"
             android:gravity="center"
-            android:text="FRAME" />
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/meals_bottom_frame_title"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingStart="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/daily_stats_proteins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_proteins"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/daily_stats_carbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_carbs"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/daily_stats_fats"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_fats"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/daily_stats_total_cal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_calories"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/daily_stats_cal_limit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_calory_limit"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/daily_stats_cal_balance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_stats_calory_balance"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/meals_fragment_fab"

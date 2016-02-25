@@ -6,5 +6,12 @@
     <string name="meal_card_proteins">Proteins:</string>
     <string name="meal_card_carbs">Carbs:</string>
     <string name="meal_card_fats">Fats:</string>
+    <string name="meals_bottom_frame_title">Daily Stats:</string>
+    <string name="daily_stats_proteins">Total proteins:</string>
+    <string name="daily_stats_carbs">Total carbs:</string>
+    <string name="daily_stats_fats">Total fats:</string>
+    <string name="daily_stats_calories">Total Calories:</string>
+    <string name="daily_stats_calory_limit">Calory-limit:</string>
+    <string name="daily_stats_calory_balance">Calory-balance:</string>
 
 </resources>

@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
@@ -19,7 +19,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
 
     private RecyclerView mRecyclerView;
 
-    private FrameLayout mBottomFrame;
+    private LinearLayout mBottomFrame;
 
     private MealsFragmentRecyclerAdapter mMealsFragmentRecyclerAdapter;
 
@@ -47,7 +47,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.meals_fragment_recycler);
         mRecyclerView.setAdapter(mMealsFragmentRecyclerAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBottomFrame = (FrameLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
+        mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
         return view;
     }
 
