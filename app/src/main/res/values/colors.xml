@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#269301</color>
-    <color name="colorPrimaryDark">#1f7901</color>
-    <color name="colorAccent">#f3d918</color>
+    <color name="colorPrimary">#7aad2a</color>
+    <color name="colorPrimaryDark">#6b9725</color>
+    <color name="colorAccent">#f78a8f</color>
     <color name="app_background">#ffffff</color>
 
     <color name="home_selected_tab_text_color">#f3d918</color>
 
     <color name="home_viewpager_bg">#bababa</color>
+    <color name="meals_fragment_bottom_frame_bg">#b6c3a2</color>
 
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>

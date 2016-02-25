@@ -15,6 +15,7 @@
         android:background="@color/colorPrimary"
         android:minWidth="0dp"
         app:tabGravity="fill"
+        app:tabIndicatorColor="@color/home_selected_tab_text_color"
         app:tabIndicatorHeight="@dimen/activity_home_tab_hightlight_height"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/home_selected_tab_text_color"
@@ -25,9 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/home_viewpager_bg"
-        android:overScrollMode="never"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"/>
+        android:overScrollMode="never"/>
 
 </LinearLayout>

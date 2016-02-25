@@ -11,7 +11,7 @@
         android:layout_width="@dimen/meal_card_image_size"
         android:layout_height="@dimen/meal_card_image_size"
         android:layout_margin="5dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/home_selected_tab_text_color" />
 
     <LinearLayout
         android:id="@+id/meal_card_nutritions_container"

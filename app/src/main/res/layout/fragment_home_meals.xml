@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/meals_fragment_bottom_frame"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:overScrollMode="never" />
 
 
@@ -15,33 +18,33 @@
         android:id="@+id/meals_fragment_bottom_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/meals_frag_bottom_frame_bg"
+        android:minHeight="100dp">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/app_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:minHeight="100dp"
-            android:backgroundTint="@color/colorPrimary"
             android:text="FRAME" />
 
     </FrameLayout>
 
-    <TextView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/meals_fragment_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/meals_fragment_recycler"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="-30dp"
-        android:background="@drawable/meals_fragment_fab_bg"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="-16dp"
         android:clickable="true"
-        android:gravity="center"
-        android:text="+"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        android:src="@drawable/ic_fab_eat"
+        app:fabSize="normal" />
 
 </RelativeLayout>
