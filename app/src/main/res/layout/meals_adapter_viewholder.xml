@@ -15,7 +15,8 @@
         android:contentDescription="@string/food_item_image_description" />
 
     <LinearLayout
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:id="@+id/meal_card_nutritions_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
