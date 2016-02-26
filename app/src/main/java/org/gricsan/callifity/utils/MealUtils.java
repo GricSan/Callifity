@@ -3,7 +3,7 @@ package org.gricsan.callifity.utils;
 import org.gricsan.callifity.db.FoodItem;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 public class MealUtils {
 
@@ -19,7 +19,7 @@ public class MealUtils {
         return mMealUtils;
     }
 
-    public static String getTotalProteins(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalProteins(List<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
@@ -29,7 +29,7 @@ public class MealUtils {
         return "Total Proteins: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCarbs(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalCarbs(List<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
@@ -39,7 +39,7 @@ public class MealUtils {
         return "Total Carbs: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalFats(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalFats(List<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {
@@ -49,7 +49,7 @@ public class MealUtils {
         return "Total Fats: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCalories(ArrayList<FoodItem> listOfMeals) {
+    public static String getTotalCalories(List<FoodItem> listOfMeals) {
         double result = 0.0;
 
         for (FoodItem foodItem : listOfMeals) {

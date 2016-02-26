@@ -10,6 +10,7 @@ import com.activeandroid.ActiveAndroid;
 
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.HomePageViewPagerAdapter;
+import org.gricsan.callifity.db.FoodItem;
 import org.gricsan.callifity.fragments.HomeBaseFragment;
 import org.gricsan.callifity.fragments.HomeDataBaseFragment;
 import org.gricsan.callifity.fragments.HomeMealsFragment;
@@ -28,12 +29,15 @@ public class MainActivity extends HomeBaseActivity {
         super.onCreate(savedInstanceState);
         ActiveAndroid.initialize(this);
         setContentView(R.layout.activity_main);
-        LinearLayout layout =(LinearLayout)findViewById(R.id.background);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.background);
         layout.setBackgroundResource(0);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
+
+        FoodItem foodItem = new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png");
+        foodItem.save();
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),

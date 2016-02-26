@@ -29,22 +29,22 @@ public class FoodItem extends Model {
     }
 
     @Column(name = "ItemName")
-    private String itemName;
+    public String itemName;
 
     @Column(name = "Calories")
-    private double itemCalories;
+    public double itemCalories;
 
     @Column(name = "Proteins")
-    private double itemProteins;
+    public double itemProteins;
 
     @Column(name = "Carbs")
-    private double itemCarbs;
+    public double itemCarbs;
 
     @Column(name = "Fats")
-    private double itemFats;
+    public double itemFats;
 
     @Column(name = "ImageUrl")
-    private String itemImageUrl;
+    public String itemImageUrl;
 
 
     public String getName() {

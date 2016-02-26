@@ -18,7 +18,7 @@
             android:value="1" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="org.gricsan.callifity.db.FoodItem" />
+            android:value="org.gricsan.callifity.db.FoodItem, org.gricsan.callifity.db.DailyMealItem" />
 
         <activity
             android:name=".activities.SplashActivity"

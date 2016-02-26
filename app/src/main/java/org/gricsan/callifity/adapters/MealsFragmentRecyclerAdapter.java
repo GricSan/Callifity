@@ -19,14 +19,14 @@ import org.gricsan.callifity.R;
 import org.gricsan.callifity.db.FoodItem;
 import org.gricsan.callifity.utils.MealUtils;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFragmentRecyclerAdapter.ViewHolder> {
 
-    private ArrayList<FoodItem> mData;
+    private List<FoodItem> mData;
     private Context mContext;
 
-    public MealsFragmentRecyclerAdapter(ArrayList<FoodItem> data, Context context) {
+    public MealsFragmentRecyclerAdapter(List<FoodItem> data, Context context) {
         this.mData = data;
         this.mContext = context;
     }
@@ -102,7 +102,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         }
     }
 
-    public ArrayList<FoodItem> getData() {
+    public List<FoodItem> getData() {
         return mData;
     }
 

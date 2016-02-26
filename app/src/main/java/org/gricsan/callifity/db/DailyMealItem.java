@@ -13,26 +13,27 @@ public class DailyMealItem {
         super();
     }
 
-    public DailyMealItem(String eatenItemID, double eatenAmount, Date itemConsumptionDate) {
+    public DailyMealItem(int eatenItemID, double eatenAmount, Date itemConsumptionDate) {
+        super();
         this.eatenItemID = eatenItemID;
         this.eatenAmount = eatenAmount;
         this.itemConsumptionDate = itemConsumptionDate;
     }
 
     @Column(name = "EatenItemId")
-    private String eatenItemID;
+    public int eatenItemID;
 
     @Column(name = "EatenItemAmount")
-    private double eatenAmount;
+    public double eatenAmount;
 
     @Column(name = "ConsumptionDate")
-    private Date itemConsumptionDate;
+    public Date itemConsumptionDate;
 
-    public String getEatenItemID() {
+    public int getEatenItemID() {
         return eatenItemID;
     }
 
-    public void setEatenItemID(String eatenItemID) {
+    public void setEatenItemID(int eatenItemID) {
         this.eatenItemID = eatenItemID;
     }
 
