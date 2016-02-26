@@ -8,13 +8,13 @@ import com.activeandroid.annotation.Table;
 import java.util.Date;
 
 @Table(name = "DailyMealItems", id = "Id")
-public class DailyMealItem extends Model{
+public class MealItem extends Model{
 
-    public DailyMealItem() {
+    public MealItem() {
         super();
     }
 
-    public DailyMealItem(int eatenItemID, double eatenAmount, Date itemConsumptionDate) {
+    public MealItem(int eatenItemID, double eatenAmount, Date itemConsumptionDate) {
         super();
         this.eatenItemID = eatenItemID;
         this.eatenAmount = eatenAmount;

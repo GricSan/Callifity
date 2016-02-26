@@ -3,7 +3,7 @@ package org.gricsan.callifity.utils;
 
 import com.activeandroid.query.Select;
 
-import org.gricsan.callifity.db.DailyMealItem;
+import org.gricsan.callifity.db.MealItem;
 import org.gricsan.callifity.db.FoodItem;
 
 import java.util.List;
@@ -28,8 +28,8 @@ public class DAOUtils {
         return new Select().from(FoodItem.class).execute();
     }
 
-    public static List<DailyMealItem> getAllDailyMealsItems(){
-        return new Select().from(DailyMealItem.class).execute();
+    public static List<MealItem> getAllDailyMealItems(){
+        return new Select().from(MealItem.class).execute();
     }
 
     public static boolean addFoodItemToDB(FoodItem foodItem){
@@ -38,6 +38,11 @@ public class DAOUtils {
             return true;
         }
         return false;
+    }
+
+    public static boolean addMealItemToDB(MealItem mealItem){
+        mealItem.save();
+        return true;
     }
 
 }
