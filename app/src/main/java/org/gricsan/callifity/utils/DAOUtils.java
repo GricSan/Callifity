@@ -28,7 +28,7 @@ public class DAOUtils {
         return new Select().from(FoodItem.class).execute();
     }
 
-    public static List<MealItem> getAllDailyMealItems(){
+    public static List<MealItem> getAllDailyMeals(){
         return new Select().from(MealItem.class).execute();
     }
 
@@ -40,7 +40,7 @@ public class DAOUtils {
         return false;
     }
 
-    public static boolean addMealItemToDB(MealItem mealItem){
+    public static boolean registerMeal(MealItem mealItem){
         mealItem.save();
         return true;
     }

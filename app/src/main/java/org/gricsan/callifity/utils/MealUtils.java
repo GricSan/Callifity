@@ -1,6 +1,6 @@
 package org.gricsan.callifity.utils;
 
-import org.gricsan.callifity.db.FoodItem;
+import org.gricsan.callifity.db.MealItem;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -19,41 +19,41 @@ public class MealUtils {
         return mMealUtils;
     }
 
-    public static String getTotalProteins(List<FoodItem> listOfMeals) {
+    public static String getTotalProteins(List<MealItem> listOfMeals) {
         double result = 0.0;
 
-        for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getProteins();
+        for (MealItem mealItem : listOfMeals) {
+            result += mealItem.getTotalProteins();
         }
 
         return "Total Proteins: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCarbs(List<FoodItem> listOfMeals) {
+    public static String getTotalCarbs(List<MealItem> listOfMeals) {
         double result = 0.0;
 
-        for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getCarbs();
+        for (MealItem mealItem : listOfMeals) {
+            result += mealItem.getTotalCarbs();
         }
 
         return "Total Carbs: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalFats(List<FoodItem> listOfMeals) {
+    public static String getTotalFats(List<MealItem> listOfMeals) {
         double result = 0.0;
 
-        for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getFats();
+        for (MealItem mealItem : listOfMeals) {
+            result += mealItem.getTotalFats();
         }
 
         return "Total Fats: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCalories(List<FoodItem> listOfMeals) {
+    public static String getTotalCalories(List<MealItem> listOfMeals) {
         double result = 0.0;
 
-        for (FoodItem foodItem : listOfMeals) {
-            result += foodItem.getCalories();
+        for (MealItem mealItem : listOfMeals) {
+            result += mealItem.getTotalCalories();
         }
         return "Total Calories: " + new DecimalFormat("####.##").format(result) + " kcal";
     }
@@ -63,19 +63,27 @@ public class MealUtils {
     }
 
     public static String convertToProteinsString(double amount) {
-        return "Proteins: " + amount + "g";
+        return "Proteins: " + new DecimalFormat("####.##").format(amount) + "g";
     }
 
     public static String convertToCarbsString(double amount) {
-        return "Carbs: " + amount + "g";
+        return "Carbs: " + new DecimalFormat("####.##").format(amount) + "g";
     }
 
     public static String convertToFatsString(double amount) {
-        return "Fats: " + amount + "g";
+        return "Fats: " + new DecimalFormat("####.##").format(amount) + "g";
+    }
+
+    public static String convertToEatenString(double amount) {
+        return "Eaten: " + new DecimalFormat("####.##").format(amount) + "g";
     }
 
     public static String convertToCaloriesString(double amount) {
-        return "Calories: " + amount + " kcal";
+        return "Calories: " + new DecimalFormat("####.##").format(amount) + " kcal";
+    }
+
+    public static double countTotalNutritions(double nutritionTableValue, double eatenAmount){
+        return (eatenAmount/100.00)*nutritionTableValue;
     }
 
 }

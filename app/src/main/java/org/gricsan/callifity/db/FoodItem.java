@@ -29,22 +29,22 @@ public class FoodItem extends Model {
     }
 
     @Column(name = "Name", unique = true)
-    public String itemName;
+    private String itemName;
 
     @Column(name = "Calories")
-    public double itemCalories;
+    private double itemCalories;
 
     @Column(name = "Proteins")
-    public double itemProteins;
+    private double itemProteins;
 
     @Column(name = "Carbs")
-    public double itemCarbs;
+    private double itemCarbs;
 
     @Column(name = "Fats")
-    public double itemFats;
+    private double itemFats;
 
     @Column(name = "ImageUrl")
-    public String itemImageUrl;
+    private String itemImageUrl;
 
 
     public String getName() {
@@ -69,5 +69,29 @@ public class FoodItem extends Model {
 
     public String getImageUrl() {
         return itemImageUrl;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemCalories(double itemCalories) {
+        this.itemCalories = itemCalories;
+    }
+
+    public void setItemProteins(double itemProteins) {
+        this.itemProteins = itemProteins;
+    }
+
+    public void setItemCarbs(double itemCarbs) {
+        this.itemCarbs = itemCarbs;
+    }
+
+    public void setItemFats(double itemFats) {
+        this.itemFats = itemFats;
+    }
+
+    public void setItemImageUrl(String itemImageUrl) {
+        this.itemImageUrl = itemImageUrl;
     }
 }

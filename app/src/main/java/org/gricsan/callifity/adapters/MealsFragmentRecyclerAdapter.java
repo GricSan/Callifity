@@ -16,17 +16,17 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import org.gricsan.callifity.R;
-import org.gricsan.callifity.db.FoodItem;
+import org.gricsan.callifity.db.MealItem;
 import org.gricsan.callifity.utils.MealUtils;
 
 import java.util.List;
 
 public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFragmentRecyclerAdapter.ViewHolder> {
 
-    private List<FoodItem> mData;
+    private List<MealItem> mData;
     private Context mContext;
 
-    public MealsFragmentRecyclerAdapter(List<FoodItem> data, Context context) {
+    public MealsFragmentRecyclerAdapter(List<MealItem> data, Context context) {
         this.mData = data;
         this.mContext = context;
     }
@@ -39,12 +39,13 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
-        FoodItem foodItem = mData.get(position);
-        viewHolder.mName.setText(MealUtils.convertToProductNameString(foodItem.getName()));
-        viewHolder.mCalories.setText(MealUtils.convertToCaloriesString(foodItem.getCalories()));
-        viewHolder.mProteins.setText(MealUtils.convertToProteinsString(foodItem.getProteins()));
-        viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(foodItem.getCarbs()));
-        viewHolder.mFats.setText(MealUtils.convertToFatsString(foodItem.getFats()));
+        MealItem mealItem = mData.get(position);
+        viewHolder.mName.setText(MealUtils.convertToProductNameString(mealItem.getName()));
+        viewHolder.mCalories.setText(MealUtils.convertToCaloriesString(mealItem.getTotalCalories()));
+        viewHolder.mProteins.setText(MealUtils.convertToProteinsString(mealItem.getTotalProteins()));
+        viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(mealItem.getTotalCarbs()));
+        viewHolder.mFats.setText(MealUtils.convertToFatsString(mealItem.getTotalFats()));
+        viewHolder.mEatenAmount.setText(MealUtils.convertToEatenString(mealItem.getEatenAmount()));
         Target picassoTarget = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -68,7 +69,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
             }
         };
         viewHolder.mImage.setTag(picassoTarget);
-        Picasso.with(mContext).load(foodItem.getImageUrl()).into(picassoTarget);
+        Picasso.with(mContext).load(mealItem.getImageUrl()).into(picassoTarget);
     }
 
     @Override
@@ -84,6 +85,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         private TextView mProteins;
         private TextView mCarbs;
         private TextView mFats;
+        private TextView mEatenAmount;
         private ImageView mImage;
         private ImageView mImageMask;
         private ProgressBar mProgressBar;
@@ -96,13 +98,14 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
             mProteins = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_protein);
             mCarbs = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_carbs);
             mFats = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_fats);
+            mEatenAmount = (TextView) mRootView.findViewById(R.id.meal_card_nutrition_consumed);
             mImage = (ImageView) mRootView.findViewById(R.id.meal_card_image);
             mImageMask = (ImageView) mRootView.findViewById(R.id.meal_card_image_mask);
             mProgressBar = (ProgressBar) mRootView.findViewById(R.id.image_progress_bar);
         }
     }
 
-    public List<FoodItem> getData() {
+    public List<MealItem> getData() {
         return mData;
     }
 

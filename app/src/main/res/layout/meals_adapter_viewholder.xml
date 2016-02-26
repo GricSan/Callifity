@@ -80,7 +80,7 @@
                 android:text="@string/meal_card_fats" />
 
             <TextView
-                android:id="@+id/meal_card_nutrition_ate"
+                android:id="@+id/meal_card_nutrition_consumed"
                 style="@style/meal_card_textstyle"
                 android:layout_weight="1"
                 android:text="@string/meal_card_consumed" />

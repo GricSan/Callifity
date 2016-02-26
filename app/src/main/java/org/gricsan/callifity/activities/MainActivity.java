@@ -11,6 +11,7 @@ import com.activeandroid.ActiveAndroid;
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.HomePageViewPagerAdapter;
 import org.gricsan.callifity.db.FoodItem;
+import org.gricsan.callifity.db.MealItem;
 import org.gricsan.callifity.fragments.HomeBaseFragment;
 import org.gricsan.callifity.fragments.HomeDataBaseFragment;
 import org.gricsan.callifity.fragments.HomeMealsFragment;
@@ -37,7 +38,7 @@ public class MainActivity extends HomeBaseActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
 
-        DAOUtils.addFoodItemToDB(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"));
+//        DAOUtils.registerMeal(new MealItem(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"), 270.50));
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),

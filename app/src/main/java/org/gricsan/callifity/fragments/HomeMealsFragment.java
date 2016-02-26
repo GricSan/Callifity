@@ -42,7 +42,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(DAOUtils.getAllFoodItems(), getContext());
+        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(DAOUtils.getAllDailyMeals(), getContext());
     }
 
     @Override
@@ -53,10 +53,10 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
 
+        mTotalCalories = (TextView) mBottomFrame.findViewById(R.id.daily_stats_total_cal);
         mTotalProteins = (TextView) mBottomFrame.findViewById(R.id.daily_stats_proteins);
         mTotalCarbs = (TextView) mBottomFrame.findViewById(R.id.daily_stats_carbs);
         mTotalFats = (TextView) mBottomFrame.findViewById(R.id.daily_stats_fats);
-        mTotalCalories = (TextView) mBottomFrame.findViewById(R.id.daily_stats_total_cal);
         mColoryLimit = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_limit);
         mColoryBalance = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_balance);
         return view;
