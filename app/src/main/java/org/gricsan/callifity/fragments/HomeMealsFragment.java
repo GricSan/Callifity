@@ -50,7 +50,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
         data.add(new FoodItem("Klubnika", 2.0, 8.5, 14.7, 160.0, "http://img0.liveinternet.ru/images/attach/c/5/86/227/86227496_faa27d0e7877.png"));
         data.add(new FoodItem("Goroshek", 2.0, 8.5, 14.7, 160.0, "http://pagewoman.ru/uploads/fotos/goroh.png"));
         data.add(new FoodItem("Hamburger", 2.0, 8.5, 14.7, 160.0, "http://kylinarocka.ru/wp-content/uploads/2012/10/hamburder-shadow.png"));
-        data.add(new FoodItem("French Fries", 2.0, 8.5, 14.7, 160.0, "http://jj-world.com.ua/am/img/parallax/splat.png"));
+        data.add(new FoodItem("French Fries", 2.0, 8.5, 14.7, 160.0, "http://thefoodalmanac.com/Images/Fries-Crinklecut.png"));
         mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(data, getContext());
     }
 

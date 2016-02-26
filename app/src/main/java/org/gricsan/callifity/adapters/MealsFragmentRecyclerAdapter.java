@@ -25,7 +25,6 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
     private ArrayList<FoodItem> mData;
     private Context mContext;
-    private Target mPicassoTarget;
 
     public MealsFragmentRecyclerAdapter(ArrayList<FoodItem> data, Context context) {
         this.mData = data;
@@ -46,7 +45,7 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         viewHolder.mProteins.setText(MealUtils.convertToProteinsString(foodItem.getProteins()));
         viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(foodItem.getCarbs()));
         viewHolder.mFats.setText(MealUtils.convertToFatsString(foodItem.getFats()));
-        mPicassoTarget = new Target() {
+        Target picassoTarget = new Target() {
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 viewHolder.mImage.setImageBitmap(bitmap);
@@ -57,8 +56,9 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
             @Override
             public void onBitmapFailed(Drawable errorDrawable) {
-                viewHolder.mImage.setImageResource(R.color.home_selected_tab_text_color);
+                viewHolder.mImage.setImageResource(R.drawable.food_item_no_image);
                 viewHolder.mImage.setVisibility(View.VISIBLE);
+                viewHolder.mImageMask.setVisibility(View.VISIBLE);
                 viewHolder.mProgressBar.setVisibility(View.GONE);
             }
 
@@ -67,8 +67,8 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
 
             }
         };
-        viewHolder.mImage.setTag(mPicassoTarget);
-        Picasso.with(mContext).load(foodItem.getImageUrl()).into(mPicassoTarget);
+        viewHolder.mImage.setTag(picassoTarget);
+        Picasso.with(mContext).load(foodItem.getImageUrl()).into(picassoTarget);
     }
 
     @Override
