@@ -42,7 +42,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(DAOUtils.getAllFoodItemsDB(), getContext());
+        mMealsFragmentRecyclerAdapter = new MealsFragmentRecyclerAdapter(DAOUtils.getAllFoodItems(), getContext());
     }
 
     @Override
