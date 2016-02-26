@@ -7,9 +7,17 @@ import java.util.ArrayList;
 
 public class MealUtils {
 
-    private final static double PROTEIN_CALORIES = 4.5;
-    private final static double CARB_CALORIES = 4.5;
-    private final static double FAT_CALORIES = 9.0;
+    private static MealUtils mMealUtils;
+
+    private MealUtils() {
+    }
+
+    public static synchronized MealUtils getInstance(){
+        if(mMealUtils == null){
+            mMealUtils = new MealUtils();
+        }
+        return mMealUtils;
+    }
 
     public static String getTotalProteins(ArrayList<FoodItem> listOfMeals) {
         double result = 0.0;

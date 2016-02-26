@@ -23,28 +23,28 @@ public class FoodItem extends Model {
         this.itemName = itemName;
         this.itemCalories = itemCalories;
         this.itemProteins = itemProteins;
-        this.itemHydroCarbs = itemCarbs;
+        this.itemCarbs = itemCarbs;
         this.itemFats = itemFats;
         this.itemImageUrl = itemImageUrl;
     }
 
     @Column(name = "ItemName")
-    public String itemName;
+    private String itemName;
 
     @Column(name = "Calories")
-    public double itemCalories;
+    private double itemCalories;
 
-    @Column(name = "Protein")
-    public double itemProteins;
+    @Column(name = "Proteins")
+    private double itemProteins;
 
-    @Column(name = "HydroCarb")
-    public double itemHydroCarbs;
+    @Column(name = "Carbs")
+    private double itemCarbs;
 
-    @Column(name = "Fat")
-    public double itemFats;
+    @Column(name = "Fats")
+    private double itemFats;
 
     @Column(name = "ImageUrl")
-    public String itemImageUrl;
+    private String itemImageUrl;
 
 
     public String getName() {
@@ -60,7 +60,7 @@ public class FoodItem extends Model {
     }
 
     public double getCarbs() {
-        return itemHydroCarbs;
+        return itemCarbs;
     }
 
     public double getFats() {
