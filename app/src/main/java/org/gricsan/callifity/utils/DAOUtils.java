@@ -33,7 +33,7 @@ public class DAOUtils {
     }
 
     public static boolean addFoodItemToDB(FoodItem foodItem){
-        if(!new Select().from(FoodItem.class).where("ItemName = ?", foodItem.getName()).exists()){
+        if(!new Select().from(FoodItem.class).where("Name = ?", foodItem.getName()).exists()){
             foodItem.save();
             return true;
         }

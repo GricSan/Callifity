@@ -8,49 +8,54 @@ import com.activeandroid.annotation.Table;
 import java.util.Date;
 
 @Table(name = "DailyMealItems", id = "Id")
-public class MealItem extends Model{
+public class MealItem extends Model {
 
     public MealItem() {
         super();
     }
 
-    public MealItem(int eatenItemID, double eatenAmount, Date itemConsumptionDate) {
+    public MealItem(String itemName, double eatenAmount, Date itemConsumptionDate) {
         super();
-        this.eatenItemID = eatenItemID;
+        this.itemName = itemName;
         this.eatenAmount = eatenAmount;
         this.itemConsumptionDate = itemConsumptionDate;
     }
 
-    @Column(name = "EatenItemId")
-    public int eatenItemID;
+    @Column(name = "Name", unique = true)
+    public String itemName;
 
-    @Column(name = "EatenItemAmount")
+    @Column(name = "EatenAmount")
     public double eatenAmount;
 
     @Column(name = "ConsumptionDate")
     public Date itemConsumptionDate;
 
-    public int getEatenItemID() {
-        return eatenItemID;
+
+    public void setEatenAmount(double eatenAmount) {
+        this.eatenAmount = eatenAmount;
     }
 
-    public void setEatenItemID(int eatenItemID) {
-        this.eatenItemID = eatenItemID;
+    public void setItemCunsomptionDate(Date itemConsumptionDate) {
+        this.itemConsumptionDate = itemConsumptionDate;
     }
 
     public double getEatenAmount() {
         return eatenAmount;
     }
 
-    public void setEatenAmount(double eatenAmount) {
-        this.eatenAmount = eatenAmount;
-    }
-
     public Date getItemConsumptionDate() {
         return itemConsumptionDate;
     }
 
-    public void setItemCunsomptionDate(Date itemConsumptionDate) {
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setItemConsumptionDate(Date itemConsumptionDate) {
         this.itemConsumptionDate = itemConsumptionDate;
     }
 }
