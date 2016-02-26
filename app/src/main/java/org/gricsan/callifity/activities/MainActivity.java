@@ -16,6 +16,7 @@ import org.gricsan.callifity.fragments.HomeDataBaseFragment;
 import org.gricsan.callifity.fragments.HomeMealsFragment;
 import org.gricsan.callifity.fragments.HomeSportsFragment;
 import org.gricsan.callifity.fragments.HomeStatisticsFragment;
+import org.gricsan.callifity.utils.DAOUtils;
 
 
 public class MainActivity extends HomeBaseActivity {
@@ -36,8 +37,7 @@ public class MainActivity extends HomeBaseActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
 
-        FoodItem foodItem = new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png");
-        foodItem.save();
+        DAOUtils.addFoodItemToDB(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"));
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),

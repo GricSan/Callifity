@@ -32,4 +32,12 @@ public class DAOUtils {
         return new Select().from(DailyMealItem.class).execute();
     }
 
+    public static boolean addFoodItemToDB(FoodItem foodItem){
+        if(!new Select().from(FoodItem.class).where("ItemName = ?", foodItem.getName()).exists()){
+            foodItem.save();
+            return true;
+        }
+        return false;
+    }
+
 }
