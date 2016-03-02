@@ -1,8 +1,10 @@
 package org.gricsan.callifity.utils;
 
+import org.gricsan.callifity.db.FoodItem;
 import org.gricsan.callifity.db.MealItem;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.List;
 
 public class MealUtils {
@@ -12,8 +14,8 @@ public class MealUtils {
     private MealUtils() {
     }
 
-    public static synchronized MealUtils getInstance(){
-        if(mMealUtils == null){
+    public static synchronized MealUtils getInstance() {
+        if (mMealUtils == null) {
             mMealUtils = new MealUtils();
         }
         return mMealUtils;
@@ -23,7 +25,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
-            result += mealItem.getTotalProteins();
+            result += mealItem.getProteins();
         }
 
         return "Total Proteins: " + new DecimalFormat("####.##").format(result) + "g";
@@ -33,7 +35,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
-            result += mealItem.getTotalCarbs();
+            result += mealItem.getCarbs();
         }
 
         return "Total Carbs: " + new DecimalFormat("####.##").format(result) + "g";
@@ -43,7 +45,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
-            result += mealItem.getTotalFats();
+            result += mealItem.getFats();
         }
 
         return "Total Fats: " + new DecimalFormat("####.##").format(result) + "g";
@@ -53,7 +55,7 @@ public class MealUtils {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
-            result += mealItem.getTotalCalories();
+            result += mealItem.getCalories();
         }
         return "Total Calories: " + new DecimalFormat("####.##").format(result) + " kcal";
     }
@@ -82,8 +84,8 @@ public class MealUtils {
         return "Calories: " + new DecimalFormat("####.##").format(amount) + " kcal";
     }
 
-    public static double countTotalNutritions(double nutritionTableValue, double eatenAmount){
-        return (eatenAmount/100.00)*nutritionTableValue;
+    public static MealItem convertToMealItem(FoodItem foodItem, double eatenAmount) {
+        return new MealItem(foodItem, eatenAmount);
     }
 
 }
