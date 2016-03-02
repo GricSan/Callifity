@@ -41,10 +41,10 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
     public void onBindViewHolder(final ViewHolder viewHolder, int position) {
         MealItem mealItem = mData.get(position);
         viewHolder.mName.setText(MealUtils.convertToProductNameString(mealItem.getName()));
-        viewHolder.mCalories.setText(MealUtils.convertToCaloriesString(mealItem.getCalories()));
         viewHolder.mProteins.setText(MealUtils.convertToProteinsString(mealItem.getProteins()));
         viewHolder.mCarbs.setText(MealUtils.convertToCarbsString(mealItem.getCarbs()));
         viewHolder.mFats.setText(MealUtils.convertToFatsString(mealItem.getFats()));
+        viewHolder.mCalories.setText(MealUtils.convertToCaloriesString(mealItem.getCalories()));
         viewHolder.mEatenAmount.setText(MealUtils.convertToEatenString(mealItem.getEatenAmount()));
         Target picassoTarget = new Target() {
             @Override
