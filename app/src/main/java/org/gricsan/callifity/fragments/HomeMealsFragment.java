@@ -1,11 +1,15 @@
 package org.gricsan.callifity.fragments;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +32,8 @@ public class HomeMealsFragment extends HomeBaseFragment {
     private TextView mTotalCalories;
     private TextView mColoryLimit;
     private TextView mColoryBalance;
+
+    private ImageButton mEatButton;
 
     private MealsFragmentRecyclerAdapter mMealsFragmentRecyclerAdapter;
 
@@ -52,6 +58,28 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView.setAdapter(mMealsFragmentRecyclerAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
+        mEatButton = (ImageButton) view.findViewById(R.id.meals_fragment_fab);
+        mEatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder aBuilder = new AlertDialog.Builder(getContext());
+                aBuilder.setMessage("Hello there, I'm a dialog!");
+                aBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                aBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = aBuilder.create();
+                dialog.show();
+            }
+        });
 
         mTotalCalories = (TextView) mBottomFrame.findViewById(R.id.daily_stats_total_cal);
         mTotalProteins = (TextView) mBottomFrame.findViewById(R.id.daily_stats_proteins);

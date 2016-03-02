@@ -38,7 +38,11 @@ public class MainActivity extends HomeBaseActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
 
-//        DAOUtils.registerMeal(new MealItem(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"), 270.50));
+//        DAOUtils.registerMeal(
+//                new MealItem(new FoodItem("Avocado", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png"), 270.50),
+//                new MealItem(new FoodItem("Strawberry", 0.7, 7.7, 0.3, 32.0, "http://www.granini.com/data/images/fruit_images/full/strawberry-04.png"), 403.15),
+//                new MealItem(new FoodItem("Grechka", 13.2, 71.5, 3.4, 343.0, "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSVmPGjwUfeNZxf4TFfzoON6n6-BBvL6B8k0rTZVCGbdyfARjB21Q"), 100.25)
+//                );
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),

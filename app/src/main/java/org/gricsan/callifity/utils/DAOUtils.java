@@ -40,8 +40,10 @@ public class DAOUtils {
         return false;
     }
 
-    public static boolean registerMeal(MealItem mealItem){
-        mealItem.save();
+    public static boolean registerMeal(MealItem... mealItem){
+        for(MealItem item : mealItem){
+            item.save();
+        }
         return true;
     }
 
