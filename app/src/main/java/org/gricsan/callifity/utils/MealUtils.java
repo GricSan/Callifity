@@ -88,4 +88,8 @@ public class MealUtils {
         return new MealItem(foodItem, eatenAmount);
     }
 
+    public static double convertToConsumedNutritions(double nutritions, double eatenAmount){
+        return nutritions/100*eatenAmount;
+    }
+
 }

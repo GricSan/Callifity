@@ -4,6 +4,8 @@ package org.gricsan.callifity.db;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import org.gricsan.callifity.utils.MealUtils;
+
 import java.util.Date;
 
 @Table(name = "DailyMeals", id = "Id")
@@ -14,15 +16,14 @@ public class MealItem extends FoodItem {
     }
 
     public MealItem(FoodItem foodItem, double eatenAmount) {
-        super();
+        super(foodItem.itemName,
+                MealUtils.convertToConsumedNutritions(foodItem.itemProteins, eatenAmount),
+                MealUtils.convertToConsumedNutritions(foodItem.itemCarbs, eatenAmount),
+                MealUtils.convertToConsumedNutritions(foodItem.itemFats, eatenAmount),
+                MealUtils.convertToConsumedNutritions(foodItem.itemCalories, eatenAmount),
+                foodItem.getImageUrl());
         this.eatenAmount = eatenAmount;
         this.itemConsumptionDate = new Date();
-        this.itemName = foodItem.getName();
-        this.itemImageUrl = foodItem.getImageUrl();
-        this.itemProteins = foodItem.itemProteins*eatenAmount/100.00;
-        this.itemCarbs = foodItem.itemCarbs*eatenAmount/100.00;
-        this.itemFats = foodItem.itemFats*eatenAmount/100.00;
-        this.itemCalories = foodItem.itemCalories/100*eatenAmount;
     }
 
     @Column(name = "EatenAmount")
@@ -39,13 +40,4 @@ public class MealItem extends FoodItem {
         return itemConsumptionDate;
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public String getImageUrl() {
-        return super.getImageUrl();
-    }
 }

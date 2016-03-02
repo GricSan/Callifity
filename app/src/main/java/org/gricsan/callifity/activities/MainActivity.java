@@ -41,8 +41,8 @@ public class MainActivity extends HomeBaseActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
 
-        FoodItem foodItem = new FoodItem("Avocado2", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png");
-        DAOUtils.registerMeals(MealUtils.convertToMealItem(foodItem,212.2));
+//        FoodItem foodItem = new FoodItem("Avocado2", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png");
+//        DAOUtils.registerMeals(MealUtils.convertToMealItem(foodItem,212.2));
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),
