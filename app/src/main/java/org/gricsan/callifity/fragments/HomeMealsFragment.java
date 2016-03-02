@@ -63,7 +63,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder aBuilder = new AlertDialog.Builder(getContext());
-                aBuilder.setMessage("Hello there, I'm a dialog!");
+                aBuilder.setView(R.layout.meals_fragment_eat_dialog);
                 aBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
