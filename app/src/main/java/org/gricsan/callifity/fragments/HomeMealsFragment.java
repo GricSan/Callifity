@@ -25,8 +25,6 @@ public class HomeMealsFragment extends HomeBaseFragment {
 
     private RecyclerView mRecyclerView;
 
-    private LinearLayout mBottomFrame;
-
     private TextView mTotalProteins;
     private TextView mTotalCarbs;
     private TextView mTotalFats;
@@ -58,8 +56,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.meals_fragment_recycler);
         mRecyclerView.setAdapter(mMealsFragmentRecyclerAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
         mEatButton = (ImageButton) view.findViewById(R.id.meals_fragment_fab);
+        LinearLayout mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
+
         mEatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,10 +67,10 @@ public class HomeMealsFragment extends HomeBaseFragment {
                 aBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mMealsFragmentRecyclerAdapter.addMealItem(new MealItem(
-                                        new FoodItem("Mango", 0.5, 11.5, 0.3, 67.0,
-                                                "http://leyla-shop.com/wp-content/uploads/2014/03/%D0%9C%D0%B0%D0%BD%D0%B3%D0%BE-150x150.png"), 213.23)
-                        );
+                        DAOUtils.registerMeals(new MealItem(
+                                new FoodItem("Mango", 0.5, 11.5, 0.3, 67.0,
+                                        "http://leyla-shop.com/wp-content/uploads/2014/03/%D0%9C%D0%B0%D0%BD%D0%B3%D0%BE-150x150.png"), 213.23));
+                        mMealsFragmentRecyclerAdapter.setData(DAOUtils.getAllDailyMeals());
                         dialog.dismiss();
                         refreshTotalNutritonValues();
                     }
@@ -79,8 +78,12 @@ public class HomeMealsFragment extends HomeBaseFragment {
                 aBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mMealsFragmentRecyclerAdapter.removeMealItem();
+                        if (mMealsFragmentRecyclerAdapter.getItemCount() >= 1) {
+                            DAOUtils.removeMealItem(mMealsFragmentRecyclerAdapter.getData().get(mMealsFragmentRecyclerAdapter.getItemCount() - 1));
+                            mMealsFragmentRecyclerAdapter.setData(DAOUtils.getAllDailyMeals());
+                        }
                         dialog.dismiss();
+                        refreshTotalNutritonValues();
                     }
                 });
                 AlertDialog dialog = aBuilder.create();

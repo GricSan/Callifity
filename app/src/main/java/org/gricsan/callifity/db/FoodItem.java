@@ -28,7 +28,7 @@ public class FoodItem extends Model {
         this.itemImageUrl = itemImageUrl;
     }
 
-    @Column(name = "Name", unique = true)
+    @Column(name = "Name")
     protected String itemName;
 
     @Column(name = "Calories")

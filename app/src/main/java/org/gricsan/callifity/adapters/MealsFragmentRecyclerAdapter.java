@@ -109,6 +109,10 @@ public class MealsFragmentRecyclerAdapter extends RecyclerView.Adapter<MealsFrag
         return mData;
     }
 
+    public void setData(List<MealItem> mData) {
+        this.mData = mData;
+    }
+
     public void addMealItem(MealItem mealItem) {
         mData.add(mealItem);
         this.notifyDataSetChanged();
