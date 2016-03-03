@@ -19,6 +19,6 @@
     <string name="food_item_image_description">Image of food item</string>
     <string name="food_item_image_mask">Mask for food item image</string>
     <string name="meal_card_name">Product:</string>
-    <string name="meal_card_consumed">Consumed:</string>
+    <string name="meal_card_eaten">Eaten:</string>
 
 </resources>

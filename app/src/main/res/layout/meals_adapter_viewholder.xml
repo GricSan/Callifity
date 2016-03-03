@@ -46,47 +46,82 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginStart="5dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/meal_card_nutrition_name"
-            style="@style/meal_card_textstyle"
-            android:text="@string/meal_card_name" />
-
-        <TextView
-            android:id="@+id/meal_card_nutrition_protein"
-            style="@style/meal_card_textstyle"
-            android:text="@string/meal_card_proteins" />
-
-        <TextView
-            android:id="@+id/meal_card_nutrition_carbs"
-            style="@style/meal_card_textstyle"
-            android:text="@string/meal_card_carbs" />
-
-        <TextView
-            android:id="@+id/meal_card_nutrition_fats"
-            style="@style/meal_card_textstyle"
-
-            android:text="@string/meal_card_fats" />
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/meal_card_nutrition_calories"
-                style="@style/meal_card_textstyle"
-                android:layout_weight="1"
-                android:text="@string/meal_card_calories" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/meal_card_nutrition_consumed"
-                style="@style/meal_card_textstyle"
-                android:layout_weight="1"
-                android:text="@string/meal_card_consumed" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/meal_card_nutrition_name"
+                        style="@style/meal_card_textstyle"
+                        android:layout_weight="1"
+                        android:text="@string/meal_card_name" />
+
+                    <TextView
+                        android:id="@+id/meal_card_nutrition_protein"
+                        style="@style/meal_card_textstyle"
+                        android:text="@string/meal_card_proteins" />
+
+                    <TextView
+                        android:id="@+id/meal_card_nutrition_carbs"
+                        style="@style/meal_card_textstyle"
+                        android:text="@string/meal_card_carbs" />
+
+                    <TextView
+                        android:id="@+id/meal_card_nutrition_fats"
+                        style="@style/meal_card_textstyle"
+                        android:text="@string/meal_card_fats" />
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/meal_card_menu_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_more_vert_black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/meal_card_nutrition_calories"
+                    style="@style/meal_card_textstyle"
+                    android:layout_weight="1"
+                    android:text="@string/meal_card_calories" />
+
+                <TextView
+                    android:id="@+id/meal_card_nutrition_consumed"
+                    style="@style/meal_card_textstyle"
+                    android:layout_weight="1"
+                    android:text="@string/meal_card_eaten" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
+
 
     </LinearLayout>
 
