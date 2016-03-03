@@ -1,6 +1,8 @@
 package org.gricsan.callifity.db;
 
 
+import android.support.annotation.Nullable;
+
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
@@ -18,7 +20,7 @@ public class FoodItem extends Model {
         this.itemCalories = itemCalories;
     }
 
-    public FoodItem(String itemName, double itemProteins, double itemCarbs, double itemFats, double itemCalories, String itemImageUrl) {
+    public FoodItem(@Nullable String itemName, double itemProteins, double itemCarbs, double itemFats, double itemCalories, String itemImageUrl) {
         super();
         this.itemName = itemName;
         this.itemCalories = itemCalories;
@@ -28,8 +30,8 @@ public class FoodItem extends Model {
         this.itemImageUrl = itemImageUrl;
     }
 
-    @Column(name = "Name")
-    protected String itemName;
+    @Column(name = "Name", unique = true)
+    private String itemName;
 
     @Column(name = "Calories")
     protected double itemCalories;

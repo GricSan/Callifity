@@ -14,15 +14,21 @@ public class MealItem extends FoodItem {
     }
 
     public MealItem(FoodItem foodItem, double eatenAmount) {
-        super(foodItem.itemName,
+        super(
+                null,
                 convertToConsumedNutritions(foodItem.itemProteins, eatenAmount),
                 convertToConsumedNutritions(foodItem.itemCarbs, eatenAmount),
                 convertToConsumedNutritions(foodItem.itemFats, eatenAmount),
                 convertToConsumedNutritions(foodItem.itemCalories, eatenAmount),
-                foodItem.getImageUrl());
+                foodItem.getImageUrl()
+        );
+        this.itemName = foodItem.getName();
         this.eatenAmount = eatenAmount;
         this.itemConsumptionDate = new Date();
     }
+
+    @Column(name = "Name")
+    private String itemName;
 
     @Column(name = "EatenAmount")
     protected double eatenAmount;
@@ -36,6 +42,11 @@ public class MealItem extends FoodItem {
 
     public Date getItemConsumptionDate() {
         return itemConsumptionDate;
+    }
+
+    @Override
+    public String getName() {
+        return this.itemName;
     }
 
     private static double convertToConsumedNutritions(double nutritions, double eatenAmount) {
