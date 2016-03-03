@@ -28,7 +28,7 @@ public class MainActivity extends HomeBaseActivity {
     private Resources mResources;
 
 
-    // TODO: 03/03/2016 add Cloudify support
+    // TODO: 03/03/2016 add Cloudinary support
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +40,6 @@ public class MainActivity extends HomeBaseActivity {
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mResources = getResources();
-
-//        FoodItem foodItem = new FoodItem("Avocado2", 2.0, 8.5, 14.7, 160.0, "http://stayfit.pp.ua/wp-content/uploads/2015/12/64500_600.png");
-//        DAOUtils.registerMeals(MealUtils.convertToMealItem(foodItem,212.2));
 
         HomeBaseFragment[] mPages = new HomeBaseFragment[]{
                 HomeMealsFragment.newInstance(),

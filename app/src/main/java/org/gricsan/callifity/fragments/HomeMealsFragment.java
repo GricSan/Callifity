@@ -1,6 +1,5 @@
 package org.gricsan.callifity.fragments;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +14,8 @@ import android.widget.TextView;
 
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
+import org.gricsan.callifity.db.FoodItem;
+import org.gricsan.callifity.db.MealItem;
 import org.gricsan.callifity.utils.DAOUtils;
 import org.gricsan.callifity.utils.MealUtils;
 
@@ -30,8 +31,8 @@ public class HomeMealsFragment extends HomeBaseFragment {
     private TextView mTotalCarbs;
     private TextView mTotalFats;
     private TextView mTotalCalories;
-    private TextView mColoryLimit;
-    private TextView mColoryBalance;
+    private TextView mCaloryLimit;
+    private TextView mCaloryBalance;
 
     private ImageButton mEatButton;
 
@@ -67,12 +68,18 @@ public class HomeMealsFragment extends HomeBaseFragment {
                 aBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        mMealsFragmentRecyclerAdapter.addMealItem(new MealItem(
+                                        new FoodItem("Mango", 0.5, 11.5, 0.3, 67.0,
+                                                "http://leyla-shop.com/wp-content/uploads/2014/03/%D0%9C%D0%B0%D0%BD%D0%B3%D0%BE-150x150.png"), 213.23)
+                        );
                         dialog.dismiss();
+                        refreshTotalNutritonValues();
                     }
                 });
                 aBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        mMealsFragmentRecyclerAdapter.removeMealItem();
                         dialog.dismiss();
                     }
                 });
@@ -85,17 +92,21 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mTotalProteins = (TextView) mBottomFrame.findViewById(R.id.daily_stats_proteins);
         mTotalCarbs = (TextView) mBottomFrame.findViewById(R.id.daily_stats_carbs);
         mTotalFats = (TextView) mBottomFrame.findViewById(R.id.daily_stats_fats);
-        mColoryLimit = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_limit);
-        mColoryBalance = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_balance);
+        mCaloryLimit = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_limit);
+        mCaloryBalance = (TextView) mBottomFrame.findViewById(R.id.daily_stats_cal_balance);
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mTotalCalories.setText(MealUtils.getTotalCalories(mMealsFragmentRecyclerAdapter.getData()));
-        mTotalProteins.setText(MealUtils.getTotalProteins(mMealsFragmentRecyclerAdapter.getData()));
-        mTotalCarbs.setText(MealUtils.getTotalCarbs(mMealsFragmentRecyclerAdapter.getData()));
-        mTotalFats.setText(MealUtils.getTotalFats(mMealsFragmentRecyclerAdapter.getData()));
+        refreshTotalNutritonValues();
+    }
+
+    private void refreshTotalNutritonValues() {
+        mTotalCalories.setText(MealUtils.getTotalDailyCalories(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalProteins.setText(MealUtils.getTotalDailyProteins(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalCarbs.setText(MealUtils.getTotalDailyCarbs(mMealsFragmentRecyclerAdapter.getData()));
+        mTotalFats.setText(MealUtils.getTotalDailyFats(mMealsFragmentRecyclerAdapter.getData()));
     }
 }

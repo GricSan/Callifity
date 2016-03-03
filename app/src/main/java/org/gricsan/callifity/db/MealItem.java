@@ -4,8 +4,6 @@ package org.gricsan.callifity.db;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-import org.gricsan.callifity.utils.MealUtils;
-
 import java.util.Date;
 
 @Table(name = "DailyMeals", id = "Id")
@@ -17,10 +15,10 @@ public class MealItem extends FoodItem {
 
     public MealItem(FoodItem foodItem, double eatenAmount) {
         super(foodItem.itemName,
-                MealUtils.convertToConsumedNutritions(foodItem.itemProteins, eatenAmount),
-                MealUtils.convertToConsumedNutritions(foodItem.itemCarbs, eatenAmount),
-                MealUtils.convertToConsumedNutritions(foodItem.itemFats, eatenAmount),
-                MealUtils.convertToConsumedNutritions(foodItem.itemCalories, eatenAmount),
+                convertToConsumedNutritions(foodItem.itemProteins, eatenAmount),
+                convertToConsumedNutritions(foodItem.itemCarbs, eatenAmount),
+                convertToConsumedNutritions(foodItem.itemFats, eatenAmount),
+                convertToConsumedNutritions(foodItem.itemCalories, eatenAmount),
                 foodItem.getImageUrl());
         this.eatenAmount = eatenAmount;
         this.itemConsumptionDate = new Date();
@@ -38,6 +36,10 @@ public class MealItem extends FoodItem {
 
     public Date getItemConsumptionDate() {
         return itemConsumptionDate;
+    }
+
+    private static double convertToConsumedNutritions(double nutritions, double eatenAmount) {
+        return nutritions / 100 * eatenAmount;
     }
 
 }

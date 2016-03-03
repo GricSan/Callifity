@@ -1,10 +1,8 @@
 package org.gricsan.callifity.utils;
 
-import org.gricsan.callifity.db.FoodItem;
 import org.gricsan.callifity.db.MealItem;
 
 import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.List;
 
 public class MealUtils {
@@ -21,7 +19,7 @@ public class MealUtils {
         return mMealUtils;
     }
 
-    public static String getTotalProteins(List<MealItem> listOfMeals) {
+    public static String getTotalDailyProteins(List<MealItem> listOfMeals) {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
@@ -31,7 +29,7 @@ public class MealUtils {
         return "Total Proteins: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCarbs(List<MealItem> listOfMeals) {
+    public static String getTotalDailyCarbs(List<MealItem> listOfMeals) {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
@@ -41,7 +39,7 @@ public class MealUtils {
         return "Total Carbs: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalFats(List<MealItem> listOfMeals) {
+    public static String getTotalDailyFats(List<MealItem> listOfMeals) {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
@@ -51,7 +49,7 @@ public class MealUtils {
         return "Total Fats: " + new DecimalFormat("####.##").format(result) + "g";
     }
 
-    public static String getTotalCalories(List<MealItem> listOfMeals) {
+    public static String getTotalDailyCalories(List<MealItem> listOfMeals) {
         double result = 0.0;
 
         for (MealItem mealItem : listOfMeals) {
@@ -82,14 +80,6 @@ public class MealUtils {
 
     public static String convertToCaloriesString(double amount) {
         return "Calories: " + new DecimalFormat("####.##").format(amount) + " kcal";
-    }
-
-    public static MealItem convertToMealItem(FoodItem foodItem, double eatenAmount) {
-        return new MealItem(foodItem, eatenAmount);
-    }
-
-    public static double convertToConsumedNutritions(double nutritions, double eatenAmount){
-        return nutritions/100*eatenAmount;
     }
 
 }
