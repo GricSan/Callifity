@@ -20,6 +20,10 @@
             android:name="AA_MODELS"
             android:value="org.gricsan.callifity.db.FoodItem, org.gricsan.callifity.db.DailyMealItem" />
 
+        <meta-data
+            android:name="CLOUDINARY_URL"
+            android:value="cloudinary://775383968365434:cc4FMIMd7gx4qafHSlj_ysrGRAs@duzolgrco" />
+
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait"

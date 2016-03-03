@@ -27,7 +27,7 @@ public class MealItem extends FoodItem {
         this.itemConsumptionDate = new Date();
     }
 
-    @Column(name = "Name")
+    @Column(name = "MealName")
     private String itemName;
 
     @Column(name = "EatenAmount")

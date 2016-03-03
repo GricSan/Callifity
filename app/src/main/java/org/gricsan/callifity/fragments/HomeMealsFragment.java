@@ -12,12 +12,19 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.Transformation;
+import com.cloudinary.android.Utils;
+
 import org.gricsan.callifity.R;
 import org.gricsan.callifity.adapters.MealsFragmentRecyclerAdapter;
 import org.gricsan.callifity.db.FoodItem;
 import org.gricsan.callifity.db.MealItem;
 import org.gricsan.callifity.utils.DAOUtils;
 import org.gricsan.callifity.utils.MealUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class HomeMealsFragment extends HomeBaseFragment {
 
@@ -58,6 +65,11 @@ public class HomeMealsFragment extends HomeBaseFragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mEatButton = (ImageButton) view.findViewById(R.id.meals_fragment_fab);
         LinearLayout mBottomFrame = (LinearLayout) view.findViewById(R.id.meals_fragment_bottom_frame);
+        Map config = new HashMap();
+        config.put("cloud_name", "duzolgrco");
+        config.put("api_key", "775383968365434");
+        config.put("api_secret", "cc4FMIMd7gx4qafHSlj_ysrGRAs");
+        final Cloudinary cloudinary = new Cloudinary(config);
 
         mEatButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,8 +81,9 @@ public class HomeMealsFragment extends HomeBaseFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         DAOUtils.registerMeals(new MealItem(
                                 new FoodItem("Mango", 0.5, 11.5, 0.3, 67.0,
-                                        "http://leyla-shop.com/wp-content/uploads/2014/03/%D0%9C%D0%B0%D0%BD%D0%B3%D0%BE-150x150.png"), 213.23));
+                                        cloudinary.url().transformation(new Transformation().width(200).crop("scale")).generate("Mango_fedguz.jpg")), 213.23));
                         mMealsFragmentRecyclerAdapter.setData(DAOUtils.getAllDailyMeals());
+                        mMealsFragmentRecyclerAdapter.notifyDataSetChanged();
                         dialog.dismiss();
                         refreshTotalNutritonValues();
                     }
@@ -81,6 +94,7 @@ public class HomeMealsFragment extends HomeBaseFragment {
                         if (mMealsFragmentRecyclerAdapter.getItemCount() >= 1) {
                             DAOUtils.removeMealItem(mMealsFragmentRecyclerAdapter.getData().get(mMealsFragmentRecyclerAdapter.getItemCount() - 1));
                             mMealsFragmentRecyclerAdapter.setData(DAOUtils.getAllDailyMeals());
+                            mMealsFragmentRecyclerAdapter.notifyDataSetChanged();
                         }
                         dialog.dismiss();
                         refreshTotalNutritonValues();

@@ -30,7 +30,7 @@ public class FoodItem extends Model {
         this.itemImageUrl = itemImageUrl;
     }
 
-    @Column(name = "Name", unique = true)
+    @Column(name = "FoodName", unique = true)
     private String itemName;
 
     @Column(name = "Calories")
